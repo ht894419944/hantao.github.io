@@ -1,3 +1,23 @@
 <p>Hello 大家好</p>
 <p>我是hantao，这是我的个人网站。 </p>
+<div class="modules">
+  <h2>模块导航</h2>
+  <ul>
+    <li><a href="/blog/">博客</a></li>
+    <li><a href="/projects/">项目</a></li>
+    <li><a href="/docs/">文档</a></li>
+  </ul>
+</div>
 
+<div class="recent-updates">
+  <h2>最近更新</h2>
+  <ul>
+    {% assign all_posts = site.documents | concat: site.blog | concat: site.projects | sort: 'date' | reverse %}
+    {% for post in all_posts limit:5 %}
+      <li>
+        <a href="{{ post.url }}">{{ post.title }}</a> 
+        <span>({{ post.date | date: "%Y-%m-%d" }})</span>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
