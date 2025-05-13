@@ -9,17 +9,5 @@
   </ul>
 </div>
 
-<div class="recent-updates">
-  <h2>最近更新</h2>
-  <ul>
-    {% assign all_posts = site.documents | concat: site.blog | concat: site.projects | sort: 'date' | reverse %}
-    {% for post in all_posts limit:5 %}
-      <li>
-        <a href="{{ post.url }}">{{ post.title }}</a> 
-        <span>({{ post.date | date: "%Y-%m-%d" }})</span>
-      </li>
-    {% endfor %}
-  </ul>
-</div>
 
 
